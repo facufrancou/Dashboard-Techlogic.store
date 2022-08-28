@@ -4,8 +4,9 @@ import { Routes, Route, Link } from "react-router-dom";
 import Cards from "./Cards";
 import NavBar from "./NavBar";
 import Carrete from "./Carrete";
-import Products from "./Products";
-import Usuarios from "./Users";
+import LastProducts from "./LastProducts";
+import LastUsers from "./LastUsers";
+import Users from "./Users";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends React.Component {
@@ -14,12 +15,12 @@ class App extends React.Component {
       <div className="container">
         <NavBar/>
         <Routes>
-        <a href="/usuarios"> Ir a Usuarios</a>
-          <Route path="/usuarios" element={<Usuarios />} />
-          
+        {/* <a href="/usuarios"> Ir a Usuarios</a> */}
+          <Route path="/usuarios" element={<Users />} />
         </Routes>
         <Cards/>
-        <Products/>
+        <LastProducts/>
+        <LastUsers/>
       </div>
     );
   }
