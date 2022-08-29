@@ -1,26 +1,28 @@
 import React from "react";
 import "../styles/App.css";
-import { Routes, Route, Link } from "react-router-dom";
-import Cards from "./Cards";
+import { Routes, Route } from "react-router-dom";
 import NavBar from "./NavBar";
-import Carrete from "./Carrete";
-import LastProducts from "./LastProducts";
-import LastUsers from "./LastUsers";
+import Home from "./Home";
+import Products from "./Products";
+import Sections from "./Sections";
+import Collections from "./Collections";
+import Brands from "./Brands";
 import Users from "./Users";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends React.Component {
   render() {
     return (
-      <div className="container">
+      <div className="wrapper">
         <NavBar/>
         <Routes>
-        {/* <a href="/usuarios"> Ir a Usuarios</a> */}
-          <Route path="/usuarios" element={<Users />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/sections" element={<Sections />} />
+          <Route path="/collections" element={<Collections />} />
+          <Route path="/brands" element={<Brands />} />
+          <Route path="/users" element={<Users />} />
         </Routes>
-        <Cards/>
-        <LastProducts/>
-        <LastUsers/>
       </div>
     );
   }

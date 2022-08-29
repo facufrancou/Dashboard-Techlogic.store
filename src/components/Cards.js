@@ -4,8 +4,8 @@ import image2 from "../assets/2.png";
 import image3 from "../assets/3.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
+import Card from "react-bootstrap/Card";
 
 function BasicExample() {
 
