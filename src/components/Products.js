@@ -23,14 +23,14 @@ function Products() {
             <div className="products">
                 {listProducts.map((product, i) => {
                     return (
-                        <Card key={i}>
+                        <Card className="container col-md-4" key={i}>
                             <Card.Img variant="top" src={product.image} />
                             <Card.Body>
                                 <Card.Title>{product.name}</Card.Title>
                                 <Card.Text>
                                     <p>ID: {product.id}</p>
-                                    <p>Precio: {product.price}</p>
-                                    <p>Descuento: {product.discount}</p>
+                                    <p>Precio: $ {product.price}</p>
+                                    <p>Descuento: {product.discount} %</p>
                                     <p>Descripción: {product.description}</p>
                                     <p>Sección: {product.section[0]}</p>
                                     <p>Colección: {product.collection[0]}</p>

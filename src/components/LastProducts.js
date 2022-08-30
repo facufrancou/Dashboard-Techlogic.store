@@ -35,8 +35,8 @@ function LastProducts() {
               <td>{product.id}</td>
               <td>{product.name}</td>
               <td>{product.description}</td>
-              <td>{product.price}</td>
-              <td>{product.discount}</td>
+              <td>$ {product.price}</td>
+              <td>{product.discount} %</td>
               <td>{product.section[0]}</td>
               <td>{product.collection[0]}</td>
               <td>{product.brand[0]}</td>

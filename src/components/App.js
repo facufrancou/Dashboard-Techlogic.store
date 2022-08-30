@@ -8,6 +8,7 @@ import Sections from "./Sections";
 import Collections from "./Collections";
 import Brands from "./Brands";
 import Users from "./Users";
+import Login from "./Login"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends React.Component {
@@ -16,7 +17,9 @@ class App extends React.Component {
       <div className="wrapper">
         <NavBar/>
         <Routes>
-          <Route path="/" element={<Home />} />
+          
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/sections" element={<Sections />} />
           <Route path="/collections" element={<Collections />} />

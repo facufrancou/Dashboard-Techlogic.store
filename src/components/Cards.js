@@ -6,9 +6,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
+import { Link, Routes } from "react-router-dom";
 
 function BasicExample() {
-
   let [listProducts, setListProducts] = useState([]);
   let [listSections, setListSections] = useState([]);
   let [listCollections, setListCollections] = useState([]);
@@ -16,39 +16,38 @@ function BasicExample() {
   let [listUsers, setListUsers] = useState([]);
 
   useEffect(() => {
-    fetch('/api/products')
-      .then(response => response.json())
-      .then(data => setListProducts(data.total))
-      .catch(e => console.log(e))
-    fetch('/api/sections')
-      .then(response => response.json())
-      .then(data => setListSections(data.total))
-      .catch(e => console.log(e))
-    fetch('/api/collections')
-      .then(response => response.json())
-      .then(data => setListCollections(data.total))
-      .catch(e => console.log(e))
-    fetch('/api/brands')
-      .then(response => response.json())
-      .then(data => setListBrands(data.total))
-      .catch(e => console.log(e))
-    fetch('/api/users')
-      .then(response => response.json())
-      .then(data => setListUsers(data.total))
-      .catch(e => console.log(e))
-  }, [])
+    fetch("/api/products")
+      .then((response) => response.json())
+      .then((data) => setListProducts(data.total))
+      .catch((e) => console.log(e));
+    fetch("/api/sections")
+      .then((response) => response.json())
+      .then((data) => setListSections(data.total))
+      .catch((e) => console.log(e));
+    fetch("/api/collections")
+      .then((response) => response.json())
+      .then((data) => setListCollections(data.total))
+      .catch((e) => console.log(e));
+    fetch("/api/brands")
+      .then((response) => response.json())
+      .then((data) => setListBrands(data.total))
+      .catch((e) => console.log(e));
+    fetch("/api/users")
+      .then((response) => response.json())
+      .then((data) => setListUsers(data.total))
+      .catch((e) => console.log(e));
+  }, []);
 
   return (
     <div className="container col-md-12">
       <br />
-      <CardGroup>
 
+      <CardGroup>
         <Card>
           <Card.Img variant="top" src={image1} />
           <Card.Body>
             <Card.Title>Productos: {listProducts}</Card.Title>
-
-            <Button variant="primary">Ver detalle</Button>
+            <Button href="/products" variant="primary">Ver detalle</Button>
           </Card.Body>
         </Card>
 
@@ -61,7 +60,7 @@ function BasicExample() {
           <Card.Body>
             <Card.Title>Secciones: {listSections}</Card.Title>
 
-            <Button variant="primary">Ver detalle</Button>
+            <Button href="/sections" variant="primary">Ver detalle</Button>
           </Card.Body>
         </Card>
 
@@ -74,7 +73,7 @@ function BasicExample() {
           <Card.Body>
             <Card.Title>Colecciones: {listCollections}</Card.Title>
 
-            <Button variant="primary">Ver detalle</Button>
+            <Button href="/colections" variant="primary">Ver detalle</Button>
           </Card.Body>
         </Card>
 
@@ -87,7 +86,7 @@ function BasicExample() {
           <Card.Body>
             <Card.Title>Marcas: {listBrands}</Card.Title>
 
-            <Button variant="primary">Ver detalle</Button>
+            <Button href="/brands" variant="primary">Ver detalle</Button>
           </Card.Body>
         </Card>
 
@@ -100,10 +99,9 @@ function BasicExample() {
           <Card.Body>
             <Card.Title>Usuarios: {listUsers}</Card.Title>
 
-            <Button variant="primary">Ver detalle</Button>
+            <Button href="/users" variant="primary">Ver detalle</Button>
           </Card.Body>
         </Card>
-
       </CardGroup>
       <br />
     </div>
