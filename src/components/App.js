@@ -21,9 +21,9 @@ class App extends React.Component {
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/sections" element={<Sections />} />
+         {/*  <Route path="/sections" element={<Sections />} />
           <Route path="/collections" element={<Collections />} />
-          <Route path="/brands" element={<Brands />} />
+          <Route path="/brands" element={<Brands />} /> */}
           <Route path="/users" element={<Users />} />
         </Routes>
       </div>

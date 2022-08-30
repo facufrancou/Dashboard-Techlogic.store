@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import ListGroup from 'react-bootstrap/ListGroup';
+
 import '../assets/styles.css'
 
 function Products() {
@@ -26,23 +28,25 @@ function Products() {
                         <Card className="container col-md-4" key={i}>
                             <Card.Img variant="top" src={product.image} />
                             <Card.Body>
-                                <Card.Title>{product.name}</Card.Title>
-                                <Card.Text>
-                                    <p>ID: {product.id}</p>
-                                    <p>Precio: $ {product.price}</p>
-                                    <p>Descuento: {product.discount} %</p>
-                                    <p>Descripción: {product.description}</p>
-                                    <p>Sección: {product.section[0]}</p>
-                                    <p>Colección: {product.collection[0]}</p>
-                                    <p>Marca: {product.brand[0]}</p>
-                                </Card.Text>
+                                <Card.Title className='text-center'>{product.name}</Card.Title>
+                                <ListGroup className="list-group-flush">
+                                    <ListGroup.Item>ID: {product.id}</ListGroup.Item>
+                                    <ListGroup.Item>Precio: $ {product.price}</ListGroup.Item>
+                                    <ListGroup.Item>Descuento: {product.discount} %</ListGroup.Item>
+                                    <ListGroup.Item>Descripción: {product.description}</ListGroup.Item>
+                                    <ListGroup.Item>Sección: {product.section[0]}</ListGroup.Item>
+                                    <ListGroup.Item>Colección: {product.collection[0]}</ListGroup.Item>
+                                    <ListGroup.Item>Marca: {product.brand[0]}</ListGroup.Item>
+                                </ListGroup>
                                 <Button variant="primary">Ver detalle</Button>
                             </Card.Body>
                         </Card>
                     );
                 })}
+                
             </div>
         </CardGroup>
+        <br/>
         <br />
         </div>
     );

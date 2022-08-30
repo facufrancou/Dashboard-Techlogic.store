@@ -12,9 +12,9 @@ function ColorSchemesExample() {
             <Nav className="me-auto">
               <Link to="/"><Nav.Link href="#home">Home</Nav.Link></Link>
               <Link to="/products"><Nav.Link href="#products">Productos</Nav.Link></Link>
-              <Link to="/sections"><Nav.Link href="#sections">Secciones</Nav.Link></Link>
+              {/* <Link to="/sections"><Nav.Link href="#sections">Secciones</Nav.Link></Link>
               <Link to="/collections"><Nav.Link href="#collections">Colecciones</Nav.Link></Link>
-              <Link to="/brands"><Nav.Link href="#brands">Marcas</Nav.Link></Link>
+              <Link to="/brands"><Nav.Link href="#brands">Marcas</Nav.Link></Link> */}
               <Link to="/users"><Nav.Link href="#users">Usuarios</Nav.Link></Link>   
             </Nav>
         </Container>

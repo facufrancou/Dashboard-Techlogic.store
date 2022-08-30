@@ -18,64 +18,49 @@ function StripedRowExample() {
       });
     }, []);
     
-    console.log(userUrl);
-  if (isLoad) {
+   if (isLoad) {
     return (
-      <div>
+      <div className="container col-md-6">
         <h1>Cargando...</h1>
       </div>
     );
-  }
-  return (
-    <div>
-      <ul>
-        {userUrl.map((user) => (
-          <li>{user.name}</li>
-        ))}
-      </ul>
-      {userUrl.map((user) => (
-          <img src={user.image}/>
-        ))}
-    </div>
-  );
-        }
-  /* return (
-    <div>
-        <br/>
-        
-        <h2>Ultimos usuarios agregados</h2>
+  }else{
+    return (
+      <div className="container col-md-6">
+      <br/>
+        <h2>Lista de usuarios</h2>
+      <br/> 
     <Table striped>
       <thead>
         <tr>
           <th>#</th>
           <th>Nombre</th>
           <th>Apellido</th>
-          <th>E-Mail</th>
+          <th>Email</th>
+          <th>Rol</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Usuario 1</td>
-          <td>Apellido</td>
-          <td>usuario1@mail.com</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Usuario 2</td>
-            <td>Apellido</td>
-            <td>usuario2@mail.com</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Usuario 3</td>
-            <td>Apellido</td>
-            <td>usuario3@mail.com</td>
-        </tr>
+        { userUrl.map((user, i) => {
+          return (
+            <tr key={i}>
+              <td>{user.id}</td>
+              <td>{user.name}</td>
+              <td>{user.lastName}</td>
+              <td>{user.email}</td>
+              <td>{user.rol}</td>
+              <td><a href="#">Ir a Detalle</a></td>
+            </tr>
+          )
+        })}
       </tbody>
     </Table>
     </div>
-  ); */
+   
+  );
+}
+      }
 
 
 export default StripedRowExample;

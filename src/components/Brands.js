@@ -21,7 +21,7 @@ function Brands() {
     }, [])
 
     return (
-        <div className="container col-md-12">
+        <div className="container col-md-8">
             <br />
             <CardGroup>
 
