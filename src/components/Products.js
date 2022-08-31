@@ -24,9 +24,10 @@ function Products() {
         <CardGroup>
             <div className="products">
                 {listProducts.map((product, i) => {
+                    console.log(product.image)
                     return (
                         <Card className="container col-md-4" key={i}>
-                            <Card.Img variant="top" src={product.image} />
+                            <Card.Img variant="top" src={"/img/products/" + product.image} /> 
                             <Card.Body>
                                 <Card.Title className='text-center'>{product.name}</Card.Title>
                                 <ListGroup className="list-group-flush">
