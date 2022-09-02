@@ -17,8 +17,7 @@ class App extends React.Component {
       <div className="wrapper">
         <NavBar/>
         <Routes>
-          
-          <Route path="/" element={<Login />} />
+          <Route exact path="/" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/products" element={<Products />} />
          {/*  <Route path="/sections" element={<Sections />} />

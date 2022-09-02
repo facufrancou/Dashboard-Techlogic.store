@@ -1,5 +1,6 @@
 import Table from "react-bootstrap/Table";
 import { useEffect, useState } from "react";
+import Spinner from 'react-bootstrap/Spinner';
 
 function StripedRowExample() {
 
@@ -20,8 +21,12 @@ function StripedRowExample() {
     
    if (isLoad) {
     return (
-      <div className="container col-md-6">
-        <h1>Cargando...</h1>
+      <div className="container col-md-1">
+        <br/>
+        <br/>
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
       </div>
     );
   }else{

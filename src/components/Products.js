@@ -3,21 +3,38 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import Spinner from 'react-bootstrap/Spinner';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 import '../assets/styles.css'
 
 function Products() {
-
+    let [isLoad, setLoad] = useState(true);
     let [listProducts, setListProducts] = useState([]);
 
     useEffect(() => {
         fetch('/api/products')
             .then(response => response.json())
-            .then(data => setListProducts(data.products))
+            .then((data) => {
+                setListProducts(data.products)
+                setLoad(false)
+            })
             .catch(e => console.log(e))
     }, [])
 
+
+
+    if (isLoad){
+        return (
+            <div className="container col-md-1">
+                   <br/>
+                   <br/>
+                <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+                </Spinner>
+            </div>
+          );
+    }else{
     return (
         <div className="container col-md-12">
         <br />
@@ -26,8 +43,11 @@ function Products() {
                 {listProducts.map((product, i) => {
                     console.log(product.image)
                     return (
-                        <Card className="container col-md-4" key={i}>
-                            <Card.Img variant="top" src={"/img/products/" + product.image} /> 
+                        
+                        <Card className="container col-md-4" key={i} >
+                            <div id='img-product'>
+                                <Card.Img variant="top" src={"/img/products/" + product.image} /> 
+                            </div>
                             <Card.Body>
                                 <Card.Title className='text-center'>{product.name}</Card.Title>
                                 <ListGroup className="list-group-flush">
@@ -52,5 +72,5 @@ function Products() {
         </div>
     );
 }
-
+}
 export default Products;

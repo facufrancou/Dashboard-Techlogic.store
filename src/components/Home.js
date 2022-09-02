@@ -3,6 +3,7 @@ import Cards from "./Cards";
 import LastProducts from "./LastProducts";
 import LastUsers from "./LastUsers";
 
+
 function Home() {
   return (
     <div className='container'>
