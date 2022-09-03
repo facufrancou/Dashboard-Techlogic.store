@@ -5,6 +5,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Spinner from 'react-bootstrap/Spinner';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { Link } from "react-router-dom";
 
 import '../assets/styles.css'
 
@@ -59,7 +60,9 @@ function Products() {
                                     <ListGroup.Item>Colección: {product.collection[0]}</ListGroup.Item>
                                     <ListGroup.Item>Marca: {product.brand[0]}</ListGroup.Item>
                                 </ListGroup>
-                                <Button variant="primary">Ver detalle</Button>
+                                <Link to={{
+                                    pathname: `/products/${product.id}`,
+                                }}><Button variant="primary">Ver detalle</Button></Link>
                             </Card.Body>
                         </Card>
                     );

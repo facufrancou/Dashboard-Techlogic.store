@@ -1,8 +1,9 @@
 import Table from "react-bootstrap/Table";
 import { useEffect, useState } from "react";
 import Spinner from 'react-bootstrap/Spinner';
+import { Link } from 'react-router-dom';
 
-function StripedRowExample() {
+function Users() {
 
   const [isLoad, setLoad] = useState(true);
   const [userUrl, setUser] = useState(null);
@@ -55,7 +56,9 @@ function StripedRowExample() {
               <td>{user.lastName}</td>
               <td>{user.email}</td>
               <td>{user.rol}</td>
-              <td><a href="#">Ir a Detalle</a></td>
+              <td><Link to={{
+                  pathname: `/users/${user.id}`,
+              }}>Ir a Detalle</Link></td>
             </tr>
           )
         })}
@@ -68,4 +71,4 @@ function StripedRowExample() {
       }
 
 
-export default StripedRowExample;
+export default Users;
