@@ -58,12 +58,15 @@ function Product() {
                                     <ListGroup.Item>Marca: {product.brand}</ListGroup.Item>
                                     <ListGroup.Item>Eliminado: {product.deleted === true ? 'Sí' : 'No'}</ListGroup.Item>
                                 </ListGroup>
+                                <br/>
                                 <Link to={{
                                     pathname:`/products/edit/${product.id}`,
                                 }}><Button variant="primary">Editar producto</Button></Link>
+                                <br/>
                                 {/* <Link to={{
                                     pathname:`/products/delete/${product.id}`,
                                 }}><Button variant="primary">Eliminar producto</Button></Link> */}
+                                <br/>
                                 <form action={`/products/edit/${product.id}?_method=DELETE`} method="POST" class="form-delete" onSubmit={handleSubmit}>
                                     <Button variant="primary" type='submit' onChange={handleDeleteChange}>Eliminar producto</Button>
                                 </form>

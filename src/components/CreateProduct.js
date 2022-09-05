@@ -44,7 +44,7 @@ function CreateProduct() {
     const handleSubmit = (event) => {
         event.preventDefault()
         alert('Nombre: ' + data.name + '\nSección: ' + data.section + '\nColección: ' + data.collection + '\nMarca: ' + data.brand + '\nPrecio: ' + data.price + '\nDescuento: ' + data.discount + '\nDescripción: ' + data.description + '\nImagen: ' + data.image);
-        fetch('http://localhost:3000/api/products/create', {
+        fetch('http://localhost:3030/api/products/create', {
             method: "POST",
             headers: {
                 "Content-Type": "Application/json",
@@ -57,7 +57,8 @@ function CreateProduct() {
     }
 
     return (
-        <div className='create-edit-form'>
+        <div className='container col-md-6'>
+            <br/>
 
             {/* TÍTULO DE LA VISTA DE CREACIÓN */}
             <h2 className='title-create-edit-form'>Formulario de Creación</h2>
