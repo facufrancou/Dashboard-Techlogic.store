@@ -59,6 +59,9 @@ function Users() {
               <td><Link to={{
                   pathname: `/users/${user.id}`,
               }}>Ir a Detalle</Link></td>
+              <td><Link to={{
+                  pathname: `/users/${user.id}`,
+              }}>Suspender</Link></td>
             </tr>
           )
         })}

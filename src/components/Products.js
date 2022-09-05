@@ -52,13 +52,12 @@ function Products() {
                             <Card.Body>
                                 <Card.Title className='text-center'>{product.name}</Card.Title>
                                 <ListGroup className="list-group-flush">
-                                    <ListGroup.Item>ID: {product.id}</ListGroup.Item>
+                                  
+                                    <ListGroup.Item>Marca: {product.brand[0]}</ListGroup.Item>
                                     <ListGroup.Item>Precio: $ {product.price}</ListGroup.Item>
                                     <ListGroup.Item>Descuento: {product.discount} %</ListGroup.Item>
                                     <ListGroup.Item>Descripción: {product.description}</ListGroup.Item>
-                                    <ListGroup.Item>Sección: {product.section[0]}</ListGroup.Item>
-                                    <ListGroup.Item>Colección: {product.collection[0]}</ListGroup.Item>
-                                    <ListGroup.Item>Marca: {product.brand[0]}</ListGroup.Item>
+                                   
                                 </ListGroup>
                                 <Link to={{
                                     pathname: `/products/${product.id}`,
