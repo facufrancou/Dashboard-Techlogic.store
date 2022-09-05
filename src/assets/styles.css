@@ -6,14 +6,6 @@
     align-items: center;
 }
 
-.brands {
-    width: 100vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-}
-
 .link-button-create {
     width: 100%;
 }
@@ -52,4 +44,8 @@
     display: block;
     margin: auto;
     width: 200px;
+}
+
+.feedback-login {
+    color: red;
 }
