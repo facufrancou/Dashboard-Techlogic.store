@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import CardGroup from "react-bootstrap/CardGroup";
-import Card from "react-bootstrap/Card";
+import Table from "react-bootstrap/Table";
 
 function Collections() {
 
@@ -20,36 +19,41 @@ function Collections() {
     }, [])
 
     return (
-        <div className="container col-md-12">
+        <div className="container col-md-6">
+        <br />
+            <h2>Lista de colecciones</h2>
             <br />
-            <CardGroup>
-
-                {listCollections.map((collection, i) => {
-
-                    {if(listProducts[collection.collectionName]){
-                        return(
-                            <Card key={i}>
-                                <Card.Body>
-                                <Card.Title>{collection.collectionName}</Card.Title>
-                                    <Card.Text>Total: {listProducts[collection.collectionName]}</Card.Text>
-                                </Card.Body>
-                            </Card>
-                        )
-                    } else {
-                        return(
-                            <Card key={i}>
-                                <Card.Body>
-                                <Card.Title>{collection.collectionName}</Card.Title>
-                                    <Card.Text>Total: 0</Card.Text>
-                                </Card.Body>
-                            </Card>
-                        )
-                    }}
-                })}
-
-            </CardGroup>
-            <br />
-        </div>
+            <Table striped>
+                <thead>
+                    <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Total de productos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {listCollections.map((collection, i) => {
+                        if(listProducts[collection.collectionName]){
+                            return(
+                                <tr key={i}>
+                                    <td>{collection.id}</td>
+                                    <td>{collection.collectionName}</td>
+                                    <td>{listProducts[collection.collectionName]}</td>
+                                </tr>
+                            )
+                        } else {
+                            return(
+                                <tr key={i}>
+                                    <td>{collection.id}</td>
+                                    <td>{collection.collectionName}</td>
+                                    <td>0</td>
+                                </tr>
+                            )
+                        }
+                    })}
+                </tbody>
+            </Table>
+      </div>
     )
 }
 

@@ -13,3 +13,43 @@
     justify-content: space-around;
     align-items: center;
 }
+
+.link-button-create {
+    width: 100%;
+}
+
+.button-create {
+    width: 50%;
+    padding: 15px 0;
+    display: block;
+    margin: 20px auto;
+}
+
+.create-edit-form {
+    margin: 3rem 5rem;
+}
+
+.title-create-edit-form {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.label-create-edit-form {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.group-create-edit-form {
+    margin-bottom: 20px;
+}
+
+.button-create-edit-form {
+    display: block;
+    margin: auto;
+}
+
+.productImage-create-edit-form {
+    display: block;
+    margin: auto;
+    width: 200px;
+}

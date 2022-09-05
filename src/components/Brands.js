@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import CardGroup from "react-bootstrap/CardGroup";
-import Card from "react-bootstrap/Card";
+import Table from "react-bootstrap/Table";
 import '../assets/styles.css'
 
 function Brands() {
@@ -21,40 +20,41 @@ function Brands() {
     }, [])
 
     return (
-        <div className="container col-md-8">
+        <div className="container col-md-6">
+        <br />
+            <h2>Lista de marcas</h2>
             <br />
-            <CardGroup>
-
-              <div className='brands'>
-
-              {listBrands.map((brand, i) => {
-
-                {if(listProducts[brand.brandName]){
-                    return(
-                        <Card key={i}>
-                            <Card.Body>
-                            <Card.Title>{brand.brandName}</Card.Title>
-                                <Card.Text>Total: {listProducts[brand.brandName]}</Card.Text>
-                            </Card.Body>
-                        </Card>
-                    )
-                } else {
-                    return(
-                        <Card key={i}>
-                            <Card.Body>
-                            <Card.Title>{brand.brandName}</Card.Title>
-                                <Card.Text>Total: 0</Card.Text>
-                            </Card.Body>
-                        </Card>
-                    )
-                }}
-                })}
-
-              </div>
-
-            </CardGroup>
-            <br />
-        </div>
+            <Table striped>
+                <thead>
+                    <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Total de productos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {listBrands.map((brand, i) => {
+                        if(listProducts[brand.brandName]){
+                            return(
+                                <tr key={i}>
+                                    <td>{brand.id}</td>
+                                    <td>{brand.brandName}</td>
+                                    <td>{listProducts[brand.brandName]}</td>
+                                </tr>
+                            )
+                        } else {
+                            return(
+                                <tr key={i}>
+                                    <td>{brand.id}</td>
+                                    <td>{brand.brandName}</td>
+                                    <td>0</td>
+                                </tr>
+                            )
+                        }
+                    })}
+                </tbody>
+            </Table>
+      </div>
     )
 }
 

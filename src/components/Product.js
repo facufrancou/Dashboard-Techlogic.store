@@ -18,13 +18,30 @@ function Product() {
             .catch(e => console.log(e))
     }, [])
 
+    const handleDeleteChange = (event) => {
+        product.deleted = true;
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        alert('Eliminando el producto: \nNombre: ' + product.name + '\nSección: ' + product.section + '\nColección: ' + product.collection + '\nMarca: ' + product.brand + '\nPrecio: ' + product.price + '\nDescuento: ' + product.discount + '\nDescripción: ' + product.description + '\nImagen: ' + product.image);
+        fetch(`http://localhost:3000/api/products/delete/${product.id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "Application/json",
+            },
+            body: JSON.stringify(product),
+        })
+            .then(response => response.json())
+        
+        /* event.target.reset(); */
+    }
+
     return (
-<div className="container col-md-12">
-        <br />
-        <CardGroup>
-            <div className="products">
-                
-                        
+        <div className="container col-md-12">
+                <br />
+                <CardGroup>
+                    <div className="products">
                         <Card className="container col-md-4" >
                             <div id='img-product'>
                                 <Card.Img variant="top" src={"/img/products/" + product.image} /> 
@@ -39,10 +56,17 @@ function Product() {
                                     <ListGroup.Item>Sección: {product.section}</ListGroup.Item>
                                     <ListGroup.Item>Colección: {product.collection}</ListGroup.Item>
                                     <ListGroup.Item>Marca: {product.brand}</ListGroup.Item>
+                                    <ListGroup.Item>Eliminado: {product.deleted === true ? 'Sí' : 'No'}</ListGroup.Item>
                                 </ListGroup>
                                 <Link to={{
                                     pathname:`/products/edit/${product.id}`,
                                 }}><Button variant="primary">Editar producto</Button></Link>
+                                {/* <Link to={{
+                                    pathname:`/products/delete/${product.id}`,
+                                }}><Button variant="primary">Eliminar producto</Button></Link> */}
+                                <form action={`/products/edit/${product.id}?_method=DELETE`} method="POST" class="form-delete" onSubmit={handleSubmit}>
+                                    <Button variant="primary" type='submit' onChange={handleDeleteChange}>Eliminar producto</Button>
+                                </form>
                             </Card.Body>
                         </Card>
                            

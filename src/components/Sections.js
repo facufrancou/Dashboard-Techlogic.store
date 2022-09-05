@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import CardGroup from "react-bootstrap/CardGroup";
-import Card from "react-bootstrap/Card";
+import Table from "react-bootstrap/Table";
 
 function Sections() {
 
@@ -20,36 +19,41 @@ function Sections() {
     }, [])
 
     return (
-        <div className="container col-md-12">
+        <div className="container col-md-6">
+        <br />
+            <h2>Lista de secciones</h2>
             <br />
-            <CardGroup>
-
-                {listSections.map((section, i) => {
-
-                    {if(listProducts[section.sectionName]){
-                        return(
-                            <Card key={i}>
-                                <Card.Body>
-                                <Card.Title>{section.sectionName}</Card.Title>
-                                    <Card.Text>Total: {listProducts[section.sectionName]}</Card.Text>
-                                </Card.Body>
-                            </Card>
-                        )
-                    } else {
-                        return(
-                            <Card key={i}>
-                                <Card.Body>
-                                <Card.Title>{section.sectionName}</Card.Title>
-                                    <Card.Text>Total: 0</Card.Text>
-                                </Card.Body>
-                            </Card>
-                        )
-                    }}
-                })}
-
-            </CardGroup>
-            <br />
-        </div>
+            <Table striped>
+                <thead>
+                    <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Total de productos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {listSections.map((section, i) => {
+                        if(listProducts[section.sectionName]){
+                            return(
+                                <tr key={i}>
+                                    <td>{section.id}</td>
+                                    <td>{section.sectionName}</td>
+                                    <td>{listProducts[section.sectionName]}</td>
+                                </tr>
+                            )
+                        } else {
+                            return(
+                                <tr key={i}>
+                                    <td>{section.id}</td>
+                                    <td>{section.sectionName}</td>
+                                    <td>0</td>
+                                </tr>
+                            )
+                        }
+                    })}
+                </tbody>
+            </Table>
+      </div>
     )
 }
 

@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
-import { Link, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function BasicExample() {
   let [listProducts, setListProducts] = useState([]);
@@ -47,7 +47,7 @@ function BasicExample() {
           <Card.Img variant="top" src={image1} />
           <Card.Body>
             <Card.Title>Productos: {listProducts}</Card.Title>
-            <Button href="/products" variant="primary">Ver detalle</Button>
+            <Link to='/products'><Button href="/products" variant="primary">Ver detalle</Button></Link>
           </Card.Body>
         </Card>
 
@@ -59,8 +59,7 @@ function BasicExample() {
           <Card.Img variant="top" src={image3} />
           <Card.Body>
             <Card.Title>Secciones: {listSections}</Card.Title>
-
-            <Button href="/sections" variant="primary">Ver detalle</Button>
+            <Link to='/sections'><Button href="/sections" variant="primary">Ver detalle</Button></Link>
           </Card.Body>
         </Card>
 
@@ -72,8 +71,7 @@ function BasicExample() {
           <Card.Img variant="top" src={image3} />
           <Card.Body>
             <Card.Title>Colecciones: {listCollections}</Card.Title>
-
-            <Button href="/colections" variant="primary">Ver detalle</Button>
+            <Link to='/collections'><Button href="/collections" variant="primary">Ver detalle</Button></Link>
           </Card.Body>
         </Card>
 
@@ -85,8 +83,7 @@ function BasicExample() {
           <Card.Img variant="top" src={image3} />
           <Card.Body>
             <Card.Title>Marcas: {listBrands}</Card.Title>
-
-            <Button href="/brands" variant="primary">Ver detalle</Button>
+            <Link to='/brands'><Button href="/brands" variant="primary">Ver detalle</Button></Link>
           </Card.Body>
         </Card>
 
@@ -98,8 +95,7 @@ function BasicExample() {
           <Card.Img variant="top" src={image2} />
           <Card.Body>
             <Card.Title>Usuarios: {listUsers}</Card.Title>
-
-            <Button href="/users" variant="primary">Ver detalle</Button>
+            <Link to='/users'><Button href="/users" variant="primary">Ver detalle</Button></Link>
           </Card.Body>
         </Card>
       </CardGroup>

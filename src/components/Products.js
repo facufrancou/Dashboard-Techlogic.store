@@ -6,7 +6,6 @@ import Button from "react-bootstrap/Button";
 import Spinner from 'react-bootstrap/Spinner';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { Link } from "react-router-dom";
-
 import '../assets/styles.css'
 
 function Products() {
@@ -40,6 +39,11 @@ function Products() {
         <div className="container col-md-12">
         <br />
         <CardGroup>
+
+            <Link to={{
+                pathname: `/products/create`,
+            }} className='link-button-create'><Button variant="primary" className='button-create'>Crear</Button></Link>
+
             <div className="products">
                 {listProducts.map((product, i) => {
                     console.log(product.image)
@@ -57,6 +61,7 @@ function Products() {
                                     <ListGroup.Item>Precio: $ {product.price}</ListGroup.Item>
                                     <ListGroup.Item>Descuento: {product.discount} %</ListGroup.Item>
                                     <ListGroup.Item>Descripción: {product.description}</ListGroup.Item>
+                                    <ListGroup.Item>Eliminado: {product.deleted === true ? 'Sí' : 'No'}</ListGroup.Item>
                                    
                                 </ListGroup>
                                 <Link to={{
@@ -66,7 +71,7 @@ function Products() {
                         </Card>
                     );
                 })}
-                
+
             </div>
         </CardGroup>
         <br/>
