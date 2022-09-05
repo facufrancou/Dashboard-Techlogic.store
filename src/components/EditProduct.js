@@ -53,7 +53,7 @@ function EditProduct() {
     const handleSubmit = (event) => {
         event.preventDefault()
         alert('Nombre: ' + data.name + '\nSección: ' + data.section + '\nColección: ' + data.collection + '\nMarca: ' + data.brand + '\nPrecio: ' + data.price + '\nDescuento: ' + data.discount + '\nDescripción: ' + data.description + '\nImagen: ' + data.image);
-        fetch(`http://localhost:3030/api/products/edit/${product.id}`, {
+        fetch(`http://localhost:3000/api/products/edit/${product.id}`, {
             method: "POST",
             headers: {
                 "Content-Type": "Application/json",
