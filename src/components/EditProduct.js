@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import '../assets/styles.css';
@@ -50,9 +50,11 @@ function EditProduct() {
         })
     }
 
+    let navigate = useNavigate();
+
     const handleSubmit = (event) => {
         event.preventDefault()
-        alert('Nombre: ' + data.name + '\nSección: ' + data.section + '\nColección: ' + data.collection + '\nMarca: ' + data.brand + '\nPrecio: ' + data.price + '\nDescuento: ' + data.discount + '\nDescripción: ' + data.description + '\nImagen: ' + data.image);
+        alert('Nombre: ' + data.name + '\nSección: ' + data.section + '\nColección: ' + data.collection + '\nMarca: ' + data.brand + '\nPrecio: ' + data.price + '\nDescuento: ' + data.discount + '\nDescripción: ' + data.description);
         fetch(`http://localhost:3000/api/products/edit/${product.id}`, {
             method: "POST",
             headers: {
@@ -63,6 +65,7 @@ function EditProduct() {
             .then(response => response.json())
         
         event.target.reset();
+        navigate('/products')
     }
 
     return (
