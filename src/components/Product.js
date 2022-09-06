@@ -61,7 +61,7 @@ function Product() {
                                 <br/>
                                 <Link to={{
                                     pathname:`/products/edit/${product.id}`,
-                                }}><Button variant="primary">Editar producto</Button></Link>
+                                }}><Button variant="primary" className='btn-edit'>Editar producto</Button></Link>
                                 <br/>
                                 {/* <Link to={{
                                     pathname:`/products/delete/${product.id}`,
