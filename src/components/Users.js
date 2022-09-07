@@ -28,7 +28,7 @@ function Users() {
     );
   } else {
     return (
-      <div className="container col-md-6">
+      <div className="container col-md-8">
         <br />
         <h2>Lista de usuarios</h2>
         <br />

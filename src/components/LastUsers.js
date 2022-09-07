@@ -14,7 +14,7 @@ function LastUsers() {
 
   return (
     <div>
-        <h2>Últimos usuarios agregados</h2>
+        <h2>Último usuario agregado</h2>
     <Table striped>
       <thead>
         <tr>

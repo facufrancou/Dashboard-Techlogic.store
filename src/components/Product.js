@@ -73,8 +73,8 @@ function Product() {
                             </Card.Body>
                         </Card>
                            
-            </div>
-        </CardGroup>
+                    </div>
+                </CardGroup>
         <br/>
         <br />
         </div>

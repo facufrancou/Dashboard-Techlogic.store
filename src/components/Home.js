@@ -8,8 +8,9 @@ function Home() {
   return (
     <div className='container'>
         <Cards />
-        <LastProducts/>
         <LastUsers/>
+        <br/>
+        <LastProducts/>
     </div>
   )
 }

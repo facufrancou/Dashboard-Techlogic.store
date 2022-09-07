@@ -25,7 +25,14 @@ img{
   border-radius: 5%
 }
 .img-login{
-  text-align: center;
+  display: block;
+  margin: auto;
+  width: 50%;
   margin-top: 20px;
-  margin-right: 0;
+}
+#img-nav{
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
 }

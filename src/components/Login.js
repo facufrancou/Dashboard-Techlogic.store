@@ -46,7 +46,7 @@ function BasicExample() {
   }
 
   return (
-    <div className='container col-md-2 form-login'>
+    <div className='container col-md-4 form-login'>
       <div className='img-login'>
         <img src={image1} alt="Logo Techlogic.store"/>
       </div>
