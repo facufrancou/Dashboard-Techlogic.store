@@ -4,6 +4,7 @@ import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
+import Table from "react-bootstrap/Table";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Link } from "react-router-dom";
 import "../assets/styles.css";
@@ -34,7 +35,7 @@ function Products() {
     );
   } else {
     return (
-      <div className="container col-md-8">
+      <div className="container col-md-12">
         <br />
         <div className="container col-md-2">
           <Link
@@ -47,50 +48,44 @@ function Products() {
           </Link>
         </div>
         <br />
-        <CardGroup>
-          <div className="products">
+        <h2>Lista de productos</h2>
+        <br />
+        <Table striped>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Marca</th>
+              <th>Precio</th>
+              <th>Descuento</th>
+              <th>Descripción</th>
+              <th>En Stock</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
             {listProducts.map((product, i) => {
-              console.log(product.image);
-              return (
-                <Card className="container col-md-4" key={i}>
-                  <div id="img-product">
-                    <Card.Img
-                      variant="top"
-                      src={"/img/products/" + product.image}
-                    />
-                  </div>
-                  <Card.Body>
-                    <Card.Title className="text-center">
-                      {product.name}
-                    </Card.Title>
-                    <ListGroup className="list-group-flush">
-                      <ListGroup.Item>Marca: {product.brand[0]}</ListGroup.Item>
-                      <ListGroup.Item>Precio: $ {product.price}</ListGroup.Item>
-                      <ListGroup.Item>
-                        Descuento: {product.discount} %
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        Descripción: {product.description}
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        Eliminado: {product.deleted === true ? "Sí" : "No"}
-                      </ListGroup.Item>
-                    </ListGroup>
+                return (
+                <tr key={i}>
+                  <td>{product.id}</td>
+                  <td>{product.brand}</td>
+                  <td>$ {product.price}</td>
+                  <td>{product.discount} %</td>
+                  <td>{product.description}</td>
+                  <td className="deleted">{product.deleted === true ? "No" : "Sí"}</td>
+                  <td>
                     <Link
                       to={{
                         pathname: `/products/${product.id}`,
                       }}
                     >
-                      <Button variant="primary">Ver detalle</Button>
+                      Ver detalle
                     </Link>
-                  </Card.Body>
-                </Card>
+                  </td>
+                </tr>
               );
             })}
-          </div>
-        </CardGroup>
-        <br />
-        <br />
+          </tbody>
+        </Table>
       </div>
     );
   }

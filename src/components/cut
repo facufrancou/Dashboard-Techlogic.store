@@ -1,0 +1,52 @@
+<div className="container col-md-8">
+        <br />
+        <div className="container col-md-2">
+          <Link
+            to={{
+              pathname: `/products/create`,
+            }}
+            className="link-button-create"
+          >
+            <Button variant="primary">Crear Producto</Button>
+          </Link>
+        </div>
+        <br />
+        <h2>Lista de productos</h2>
+        <br />
+        <Table striped>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Marca</th>
+              <th>Precio</th>
+              <th>Descuento</th>
+              <th>Descripción</th>
+              <th>En Stock</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {listProducts.map((product, i) => {
+                return (
+                <tr key={i}>
+                  <td>{product.id}</td>
+                  <td>{product.brand}</td>
+                  <td>{product.price}</td>
+                  <td>{product.discount}</td>
+                  <td>{product.description}</td>
+                  <td>{product.deleted === true ? "Sí" : "No"}</td>
+                  <td>
+                    <Link
+                      to={{
+                        pathname: `/products/${product.id}`,
+                      }}
+                    >
+                      Ver detalle
+                    </Link>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </Table>
+      </div>
