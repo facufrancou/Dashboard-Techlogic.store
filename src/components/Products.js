@@ -1,26 +1,60 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import CardGroup from "react-bootstrap/CardGroup";
-import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 import Table from "react-bootstrap/Table";
-import ListGroup from "react-bootstrap/ListGroup";
+
+import InputGroup from "react-bootstrap/InputGroup";
 import { Link } from "react-router-dom";
 import "../assets/styles.css";
+import { Form } from "react-bootstrap";
 
 function Products() {
   let [isLoad, setLoad] = useState(true);
   let [listProducts, setListProducts] = useState([]);
+  let [products, setProducts] = useState([]);
+  let [busqueda, setBusqueda] = useState("");
 
-  useEffect(() => {
-    fetch("/api/products")
+  const peticionGet = async () => {
+    await fetch("/api/products")
       .then((response) => response.json())
       .then((data) => {
         setListProducts(data.products);
+        setProducts(data.products);
         setLoad(false);
       })
       .catch((e) => console.log(e));
+  };
+
+  const searchRealTime = (e) => {
+    setBusqueda(e.target.value);
+    filtrar(e.target.value);
+  };
+
+  const filtrar = (terminoBusqueda) => {
+    let resultadosBusqueda = listProducts.filter((elemento) => {
+      if (
+        elemento.brand
+          .toString()
+          .toLowerCase()
+          .includes(terminoBusqueda.toLowerCase()) ||
+        elemento.description
+          .toString()
+          .toLowerCase()
+          .includes(terminoBusqueda.toLowerCase()) ||
+          elemento.name
+          .toString()
+          .toLowerCase()
+          .includes(terminoBusqueda.toLowerCase())
+      ) {
+        return elemento;
+      }
+    });
+    setProducts(resultadosBusqueda);
+  };
+
+  useEffect(() => {
+    peticionGet();
   }, []);
 
   if (isLoad) {
@@ -37,6 +71,13 @@ function Products() {
     return (
       <div className="container col-md-12">
         <br />
+        <br />
+        <InputGroup className="container mb-4" onChange={searchRealTime}>
+          <InputGroup.Text value={busqueda}>
+            Buscar un producto:
+          </InputGroup.Text>
+          <Form.Control aria-label="First name" />
+        </InputGroup>
         <div className="container col-md-2">
           <Link
             to={{
@@ -47,7 +88,6 @@ function Products() {
             <Button variant="primary">Crear Producto</Button>
           </Link>
         </div>
-        <br />
         <h2>Lista de productos</h2>
         <br />
         <Table striped>
@@ -55,6 +95,7 @@ function Products() {
             <tr>
               <th>#</th>
               <th>Marca</th>
+              <th>Nombre</th>
               <th>Precio</th>
               <th>Descuento</th>
               <th>Descripción</th>
@@ -63,15 +104,18 @@ function Products() {
             </tr>
           </thead>
           <tbody>
-            {listProducts.map((product, i) => {
-                return (
+            {products.map((product, i) => {
+              return (
                 <tr key={i}>
                   <td>{product.id}</td>
                   <td>{product.brand}</td>
+                  <td>{product.name}</td>
                   <td>$ {product.price}</td>
                   <td>{product.discount} %</td>
                   <td>{product.description}</td>
-                  <td className="deleted">{product.deleted === true ? "No" : "Sí"}</td>
+                  <td className="deleted">
+                    {product.deleted === true ? "No" : "Sí"}
+                  </td>
                   <td>
                     <Link
                       to={{

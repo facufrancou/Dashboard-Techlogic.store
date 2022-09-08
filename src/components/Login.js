@@ -4,7 +4,6 @@ import image1 from "../assets/logoTL.svg";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import '../assets/styles.css';
-/* import bcryptjs from 'bcryptjs'; */
 
 function BasicExample() {
 

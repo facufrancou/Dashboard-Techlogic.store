@@ -8,40 +8,41 @@ function EditProduct() {
 
     let { id } = useParams();
 
-    let [data, setData] = useState({
-        name: '',
-        section: '',
-        collection: '',
-        brand: '',
-        price: '',
-        discount: '',
-        description: '',
-        image: ''
-    });
     let [ product, setProduct ] = useState(0)
     let [ listSections, setListSections] = useState([]);
     let [ listCollections, setListCollections] = useState([]);
     let [ listBrands, setListBrands] = useState([]);
-
+    
     useEffect(() => {
-
+        
         fetch(`/api/products/${id}`)
-            .then(response => response.json())
-            .then(data => setProduct(data.product))
+        .then(response => response.json())
+        .then(data => setProduct(data.product))
             .catch(e => console.log(e))
         fetch('/api/sections')
                 .then(response => response.json())
                 .then(data => setListSections(data.sections))
                 .catch(e => console.log(e))
-        fetch('/api/collections')
+                fetch('/api/collections')
                 .then(response => response.json())
                 .then(data => setListCollections(data.collections))
                 .catch(e => console.log(e))
         fetch('/api/brands')
-                .then(response => response.json())
-                .then(data => setListBrands(data.brands))
-                .catch(e => console.log(e))
+        .then(response => response.json())
+        .then(data => setListBrands(data.brands))
+        .catch(e => console.log(e))
     }, [])
+
+    let [data, setData] = useState({
+        name: product.name,
+        section: product.section,
+        collection: product.collection,
+        brand: product.brand,
+        price: product.price,
+        discount: product.discount,
+        description: product.description,
+        image: product.image
+    });
 
     const handleInputChange = (event) => {
         setData({

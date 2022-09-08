@@ -33,8 +33,6 @@ function Product() {
             body: JSON.stringify(product),
         })
             .then(response => response.json())
-        
-        /* event.target.reset(); */
     }
 
     return (
@@ -62,10 +60,6 @@ function Product() {
                                 <Link to={{
                                     pathname:`/products/edit/${product.id}`,
                                 }}><Button variant="primary" className='btn-edit'>Editar producto</Button></Link>
-                                <br/>
-                                {/* <Link to={{
-                                    pathname:`/products/delete/${product.id}`,
-                                }}><Button variant="primary">Eliminar producto</Button></Link> */}
                                 <br/>
                                 <form action={`/products/edit/${product.id}?_method=DELETE`} method="POST" class="form-delete" onSubmit={handleSubmit}>
                                     <Button variant="primary" type='submit' onChange={handleDeleteChange}>Eliminar producto</Button>

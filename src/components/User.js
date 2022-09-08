@@ -43,9 +43,3 @@ function User() {
 }
 
 export default User
-{/* <div>
-    <h2>Nombre: {user.name} {user.lastName}</h2>
-    <p>ID: {user.id}</p>
-    <p>email: $ {user.email}</p>
-    <img src={"/img/users/" + user.image} />
-</div> */}

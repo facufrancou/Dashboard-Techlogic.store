@@ -13,6 +13,7 @@ import Users from "./Users";
 import User from "./User";
 import CreateProduct from "./CreateProduct";
 import EditProduct from "./EditProduct";
+import NotFound from "./NotFound";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends React.Component {
@@ -32,6 +33,7 @@ class App extends React.Component {
           <Route path="/users/:id" element={<User />} />
           <Route path="/products/create" element={<CreateProduct />} />
           <Route path="/products/edit/:id" element={<EditProduct />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </div>
     );
