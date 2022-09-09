@@ -61,6 +61,7 @@ function Product() {
                                     pathname:`/products/edit/${product.id}`,
                                 }}><Button variant="primary" className='btn-edit'>Editar producto</Button></Link>
                                 <br/>
+                                <br/>
                                 <form action={`/products/edit/${product.id}?_method=DELETE`} method="POST" class="form-delete" onSubmit={handleSubmit}>
                                     <Button variant="primary" type='submit' onChange={handleDeleteChange}>Eliminar producto</Button>
                                 </form>
